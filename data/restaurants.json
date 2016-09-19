@@ -1,0 +1,101 @@
+[
+  {
+    name: 'Che Manoli',
+    photo: 'http://placehold.it/350x350',
+    address: '123 fake street',
+    type: 'Spanish',
+    description: 'Voluptas aut et omnis voluptatem. Ut voluptas vel culpa incidunt soluta in qui quasi. Autem ut enim velit illo nisi. Natus veritatis consequuntur earum. Esse molestiae repudiandae ipsa nisi.',
+    openingHours: [
+      {
+        open: '12:00',
+        close: '16:00'
+      },
+      {
+        open: '20:00',
+        close: '0:00'
+      }
+    ],
+    reviews: [
+      {
+        stars: 5,
+        name: 'Juanmi',
+        comment: 'Hello, I love this restaurant'
+        created_at: ''
+      }
+    ]
+  },
+  {
+    name: 'Che Manoli',
+    photo: 'http://placehold.it/350x350',
+    type: 'Spanish',
+    address: '123 fake street',
+    description: 'Voluptas aut et omnis voluptatem. Ut voluptas vel culpa incidunt soluta in qui quasi. Autem ut enim velit illo nisi. Natus veritatis consequuntur earum. Esse molestiae repudiandae ipsa nisi.',
+    openingHours: [
+      {
+        open: '12:00',
+        close: '16:00'
+      },
+      {
+        open: '20:00',
+        close: '0:00'
+      }
+    ],
+    reviews: [
+      {
+        stars: 5,
+        name: 'Juanmi',
+        comment: 'Hello, I love this restaurant'
+        created_at: ''
+      }
+    ]
+  },
+  {
+    name: 'Che Manoli',
+    photo: 'http://placehold.it/350x350',
+    address: '123 fake street',
+    description: 'Voluptas aut et omnis voluptatem. Ut voluptas vel culpa incidunt soluta in qui quasi. Autem ut enim velit illo nisi. Natus veritatis consequuntur earum. Esse molestiae repudiandae ipsa nisi.',
+    openingHours: [
+      {
+        open: '12:00',
+        close: '16:00'
+      },
+      {
+        open: '20:00',
+        close: '0:00'
+      }
+    ],
+    reviews: [
+      {
+        stars: 5,
+        name: 'Juanmi',
+        comment: 'Hello, I love this restaurant'
+        created_at: ''
+      }
+    ]
+  },
+  {
+    name: 'Che Manoli',
+    photo: 'http://placehold.it/350x350',
+    type: 'Spanish',
+    address: '123 fake street',
+    description: 'Voluptas aut et omnis voluptatem. Ut voluptas vel culpa incidunt soluta in qui quasi. Autem ut enim velit illo nisi. Natus veritatis consequuntur earum. Esse molestiae repudiandae ipsa nisi.',
+    openingHours: [
+      {
+        open: '12:00',
+        close: '16:00'
+      },
+      {
+        open: '20:00',
+        close: '0:00'
+      }
+    ],
+    reviews: [
+      {
+        stars: 5,
+        name: 'Juanmi',
+        comment: 'Hello, I love this restaurant'
+        created_at: ''
+      }
+    ]
+  }
+]
