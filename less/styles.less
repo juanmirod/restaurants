@@ -1,12 +1,14 @@
 @import 'https://fonts.googleapis.com/css?family=Montserrat|Open+Sans';
 
-@background-dark:  #ef6c00;
+@background-dark:  #d14900;
 @background-light: #fff8e1;
 @background-lighter: #ffffff;
-@text-light: #fefefe;
+@background-maps-button: #0277BD;
+@text-light: #ffffff;
 @color-disabled: #cccccc;
-@text-color-disabled: #888888;
-@text-color-selected: #64DD17;
+@text-color-disabled: #767676;
+@text-color-selected: #49850f;
+@text-color-error: #D50000;
 
 body {
   font-size: 16px;
@@ -81,6 +83,7 @@ input[type="button"]:hover {
   
   input[type="text"] {
     width: 100%;
+    font-size: 1.1em;
   }
 
   li {
@@ -94,7 +97,8 @@ input[type="button"]:hover {
     display: inline-block;
     vertical-align: middle;
     line-height: normal;
-    padding-left: 40px;
+    padding-left: 30px;
+    margin-right: 20px;
     font-weight: bold;
     font-size: 1.1em;
     color: @text-color-disabled;
@@ -106,12 +110,12 @@ input[type="button"]:hover {
     display: inline-block;
     position: absolute;
     border-radius: 50%;
-    height: 30px;
-    width: 30px;
+    height: 25px;
+    width: 25px;
     content: '';
     background-color: @color-disabled;
-    margin-left: -34px;
-    margin-top: -3px;
+    margin-left: -30px;
+    margin-top: 0px;
     transition: background-color 0.2s linear;
   }
 
@@ -155,9 +159,43 @@ main {
       padding-bottom: 10px;
       box-shadow: 0px 10px 10px #cccccc;
 
+      a {
+        text-decoration: none;
+        color: black;
+
+        &:focus {
+          outline: none;
+          box-shadow: 0px 0px 10px @background-dark;
+          border: 1px solid @background-dark !important;
+        }
+      }
+
       h2 {
         vertical-align: middle;
         line-height: 30px;
+      }
+
+      .location { 
+        height: 50px;
+        line-height: 50px;
+        vertical-align: middle;
+
+        a.maps {
+          display: inline-block;
+          background-color: @background-maps-button;
+          border: 0px;
+          border-radius:10px;
+          padding: 2px 10px;
+          color: @text-light;
+          margin-left: 20px;
+          margin-top: 12px;
+          line-height: normal;
+          position: absolute;
+        }
+      }
+
+      .opening {
+        font-weight: bold;
       }
 
       .thumb {
@@ -191,8 +229,12 @@ main {
   }
 
   &.empty {
-    color: #cccccc;
+    color: @text-color-disabled;
   }
+}
+
+.fa-heart {
+  color: @text-color-error;
 }
 
 .sr-only {
@@ -208,6 +250,10 @@ main {
 
 .col-100 {
   width: 100%;
+}
+
+.text-success {
+  color: @text-color-selected;
 }
 
 @media (min-width: 768px) {

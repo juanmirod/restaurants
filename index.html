@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 
   <meta charset="utf-8">
@@ -27,8 +27,7 @@
     <label for="searchbox" class="sr-only">Type to filter by name</label>
       <input id="searchbox" type="text" name="search" placeholder="Type to filter by name">
     <div role="radiogroup">
-      Filter by type
-      
+      <span class="sr-only">Filter by type</span>
       <ul>
         <li>
           <input type="radio" name="filter" id="ita" value="Italian">
@@ -61,7 +60,9 @@
     <section id="restaurants-list">
       <article class="row">
         <h2>
-          Chê Manoli
+          <a href="#more">
+            Chê Manoli
+          </a>
           <i class="fa fa-star full" aria-hidden="true"></i>
           <i class="fa fa-star full" aria-hidden="true"></i>
           <i class="fa fa-star full" aria-hidden="true"></i>
@@ -71,6 +72,14 @@
         <div class="thumb">
           <img src="img/rest1.jpg" alt="Che Manoli Photograph">
         </div>
+        <div class="location">
+          <span class="sr-only">Location:</span>
+          <span class="fa fa-map-marker" aria-hidden="true"></span> 123 fake street, London, UK
+          <a class="maps" href="#" target="_blank">Open in Maps</a>
+        </div>
+        <div class="opening">
+          Opens: <span class="text-success">9:00 - 14:00</span> | <span class="text-success">16:00 - 20:00</span>
+        </div>
         <div class="description">
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
           tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
@@ -79,16 +88,12 @@
           cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
           proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         </div>
-        <span>
-          12 Reviews
-          <i class="fa fa-comment-o" aria-hidden="true"></i>
-        </span>
-        <input type="button" value="Add your review"/>
+        <input type="button" value="12 reviews - Add your review"/>
       </article>
     </section>
   </main>
   <footer class="container">
-    Created by @juanmirod
+    Created with <span class="sr-only">love</span><span class="fa fa-heart" aria-hidden="true"></span> by <a href="https://github.com/juanmirod">@juanmirod</a>
   </footer>
 </body>
 </html>
