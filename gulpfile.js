@@ -89,7 +89,7 @@ gulp.task('reload', function() {
 gulp.task('serve', ['server', 'styles', 'bundlejs:dev'], function() {
 
   gulp.watch('less/**/*.less', ['styles']);
-  gulp.watch('app/**/*.js', ['bundlejs:dev']);
+  gulp.watch('js/**/*.js', ['bundlejs:dev']);
 
   gulp.watch([
     'dist/css/*.css',
