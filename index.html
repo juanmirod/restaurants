@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Restaurants</title>
   <link rel="stylesheet" href="dist/css/styles.css">
+  <link rel="stylesheet" href="dist/font-awesome-4.6.3/css/font-awesome.min.css">
+
 </head>
 <body>
   <nav>
@@ -13,43 +16,78 @@
       <li><a href="#">Restaurants</a></li>
     </ul>
   </nav>
-  <header class="row">
-    <h1>List of restaurants</h1>
-    <p>Search a restaurant or use filter options to narrow down the options.</p>
+  <header class="container">
+    <div class="row">
+      <h1>List of restaurants</h1>
+      <p>Search a restaurant or use filter options to narrow down the options.</p>
+    </div>
   </header>
-  <main role="main">
+  <main role="main" class="container">
     <section id="search-form">
-    <label>
-      <input type="text" name="search">
-      Search
-    </label>
+    <label for="searchbox" class="sr-only">Type to filter by name</label>
+      <input id="searchbox" type="text" name="search" placeholder="Type to filter by name">
     <div role="radiogroup">
       Filter by type
-      <label>
-      <input type="radio" name="filter" value="Mexican">Mexican
-      </label>
-      <label>
-      <input type="radio" name="filter" value="Italian">Italian
-      </label>
-      <label>
-      <input type="radio" name="filter" value="Fast food">Fast food
-      </label>
+      
+      <ul>
+        <li>
+          <input type="radio" name="filter" id="ita" value="Italian">
+          <label for="ita">Italian</label>
+        </li>
+
+        <li>
+          <input type="radio" name="filter" id="spa" value="Italian">
+          <label for="spa">Spanish</label>
+        </li>
+
+        <li>          
+          <input type="radio" name="filter" id="fast" value="Fast food">
+          <label for="fast">Fast Food</label>
+        </li>
+        
+        <li>
+          <input type="radio" name="filter" id="chi" value="Fast food">
+          <label for="chi">Chinnesse</label>
+        </li>
+          
+        <li>
+          <input type="radio" name="filter" id="japan" value="Fast food">
+          <label for="japan">Japanesse</label>
+        </li>
+
+      </ul>
     </div>
     </section>
     <section id="restaurants-list">
       <article class="row">
-        <h2>Che Manoli</h2>
-        <img src="http://lorempixel.com/200/200/food/1" alt="Che Manoli photograph">
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <h2>
+          Chê Manoli
+          <i class="fa fa-star full" aria-hidden="true"></i>
+          <i class="fa fa-star full" aria-hidden="true"></i>
+          <i class="fa fa-star full" aria-hidden="true"></i>
+          <i class="fa fa-star full" aria-hidden="true"></i>
+          <i class="fa fa-star empty" aria-hidden="true"></i>
+        </h2>
+        <div class="thumb">
+          <img src="img/rest1.jpg" alt="Che Manoli Photograph">
+        </div>
+        <div class="description">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <span>
+          12 Reviews
+          <i class="fa fa-comment-o" aria-hidden="true"></i>
+        </span>
+        <input type="button" value="Add your review"/>
       </article>
     </section>
   </main>
-  <footer>
+  <footer class="container">
     Created by @juanmirod
   </footer>
 </body>
