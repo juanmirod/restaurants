@@ -27,7 +27,7 @@
     "name": "Che Manoli",
     "photo": "img/rest1.jpg",
     "address": "123 fake street",
-    "type": "Spanish",
+    "type": "Pizza",
     "description": "Voluptas aut et omnis voluptatem. Ut voluptas vel culpa incidunt soluta in qui quasi. Autem ut enim velit illo nisi. Natus veritatis consequuntur earum. Esse molestiae repudiandae ipsa nisi.",
     "openingHours": [
       {
@@ -52,7 +52,7 @@
     "name": "Che Manoli",
     "photo": "img/rest1.jpg",
     "address": "123 fake street",
-    "type": "Spanish",
+    "type": "Vegan",
     "description": "Voluptas aut et omnis voluptatem. Ut voluptas vel culpa incidunt soluta in qui quasi. Autem ut enim velit illo nisi. Natus veritatis consequuntur earum. Esse molestiae repudiandae ipsa nisi.",
     "openingHours": [
       {
@@ -77,7 +77,7 @@
     "name": "Che Manoli",
     "photo": "img/rest1.jpg",
     "address": "123 fake street",
-    "type": "Spanish",
+    "type": "Seafood",
     "description": "Voluptas aut et omnis voluptatem. Ut voluptas vel culpa incidunt soluta in qui quasi. Autem ut enim velit illo nisi. Natus veritatis consequuntur earum. Esse molestiae repudiandae ipsa nisi.",
     "openingHours": [
       {

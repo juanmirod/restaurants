@@ -19,6 +19,13 @@ import * as App from './app.js';
 
   ready().then(function() {
     App.init();
+
+    // add filtering listeners
+    var typeButtons = document.getElementsByClassName('type-button');
+    for(var i=0; i < typeButtons.length; i++) {
+      typeButtons[i].addEventListener('click', App.filterByTypeHandler);
+    }
+
   });
 
 })();

@@ -7,11 +7,32 @@ export function init() {
 
   fetch('data/restaurants.json')
     .then(response => response.json())
+    .then(storeRestaurants)
     .then(showRestaurants)
     .catch(function(error) {
       console.error('Could not load the restaurants.', error);
     });
 
+}
+
+export function filterByTypeHandler(event) {
+
+  var type = this.children[0].value; // gets the value of the input FIXME: too ugly :P
+  showRestaurants(restaurants.filter((restaurant) => 
+    restaurant.type === type
+  ));
+
+}
+
+/* 
+  Stores the restaurants array in a variable for filters 
+  They could be stored to localstorage or indexedDB
+  but for this app it will do with a module variable.
+*/
+var restaurants;
+function storeRestaurants(res) {
+  restaurants = res;
+  return res;
 }
 
 /*
