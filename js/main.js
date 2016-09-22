@@ -21,12 +21,11 @@ import * as App from './app.js';
     App.init();
 
     // add filtering listeners
-    var typeButtons = document.getElementsByClassName('type-button');
+    var typeButtons = document.getElementsByName('type');
     for(var i=0; i < typeButtons.length; i++) {
-      typeButtons[i].addEventListener('click', function(){
+      typeButtons[i].addEventListener('change', function(){
 
-        // gets the value of the input FIXME: too ugly :P
-        App.filterByType(this.previousElementSibling.value);
+        App.filterByType(this.value);
 
       });
     }
