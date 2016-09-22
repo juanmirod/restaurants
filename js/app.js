@@ -1,4 +1,9 @@
 
+// module variables, used to filter the restaurants by name and type
+var restaurants, 
+typeSelected = '', 
+searchString = '';
+
 /* 
   Initialize the application loading the restaurants data 
   and adding the event listeners to the interactive elements.
@@ -15,12 +20,42 @@ export function init() {
 
 }
 
-export function filterByTypeHandler(event) {
+export function filterByType(type) {
 
-  var type = this.children[0].value; // gets the value of the input FIXME: too ugly :P
-  showRestaurants(restaurants.filter((restaurant) => 
-    restaurant.type === type
-  ));
+  typeSelected = type;
+  showRestaurants(filterRestaurants());
+
+}
+
+export function filterByName(name) {
+  
+  searchString = name;
+  showRestaurants(filterRestaurants());
+
+}
+
+export function filterRestaurants() {
+
+  return restaurants.filter((restaurant) => {
+    
+    var containsSearchString = true, 
+    isTypeSelected = true;
+    
+    if(searchString != '') {
+  
+      containsSearchString = restaurant.name.indexOf(searchString) != -1;
+  
+    } 
+
+    if(typeSelected != ''){
+
+      isTypeSelected = (restaurant.type === typeSelected);
+
+    } 
+
+    return containsSearchString && isTypeSelected;
+    
+  });
 
 }
 
@@ -29,7 +64,6 @@ export function filterByTypeHandler(event) {
   They could be stored to localstorage or indexedDB
   but for this app it will do with a module variable.
 */
-var restaurants;
 function storeRestaurants(res) {
   restaurants = res;
   return res;
