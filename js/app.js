@@ -14,11 +14,46 @@ export function init() {
 
 }
 
+/*
+  Render all restaurants using the restaurant template
+*/
 function showRestaurants(restaurants) {
   
   var restaurantsList = document.getElementById('restaurants-list'),
   html = restaurants.map(rest => restaurantTmpl(rest));
-  restaurantsList.innerHTML = html.join();
+  restaurantsList.innerHTML = html.join('');
+
+}
+
+/*
+  Average of an array of numbers
+*/
+function avg(array) {
+  return array.reduce((prev, cur) => prev + cur, 0)/array.length;
+}
+
+/*
+  Calculate the average from all stars in the reviews
+*/
+function calculateStars(reviews) {
+
+  var stars = reviews.map((review) => review.stars);
+  return avg(stars) ;
+
+}
+
+/*
+  Calculate how full is the current star
+*/
+function starType(order, number) {
+
+  if(number - order == -0.5) {
+    return 'half';
+  } else if(number - order >= 0) {
+    return 'full'
+  }
+
+  return 'empty';
 
 }
 
@@ -61,29 +96,6 @@ function openingTmpl(openingHours) {
 function timeTmpl(time) {
 
   return `<span class="text-success">${time.open} - ${time.close}</span>`;
-
-}
-
-function avg(array) {
-  return array.reduce((prev, cur) => prev + cur, 0)/array.length;
-}
-
-function calculateStars(reviews) {
-
-  var stars = reviews.map((review) => review.stars);
-  return avg(stars) ;
-
-}
-
-function starType(order, number) {
-
-  if(number - order == -0.5) {
-    return 'half';
-  } else if(number - order >= 0) {
-    return 'full'
-  }
-
-  return 'empty';
 
 }
 
