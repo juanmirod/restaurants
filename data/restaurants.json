@@ -1,7 +1,7 @@
 [{
     "name": "Che Manoli",
     "photo": "img/rest1.jpg",
-    "address": "123 fake street",
+    "address": "Calle Vara del Rey 32, Logroño, España",
     "type": "Spanish",
     "description": "Voluptas aut et omnis voluptatem. Ut voluptas vel culpa incidunt soluta in qui quasi. Autem ut enim velit illo nisi. Natus veritatis consequuntur earum. Esse molestiae repudiandae ipsa nisi.",
     "openingHours": [
@@ -11,12 +11,12 @@
       },
       {
         "open": "20:00",
-        "close": "0:00"
+        "close": "00:00"
       }
     ],
     "reviews": [
       {
-        "stars": 5,
+        "stars": 4.5,
         "name": "Juanmi",
         "comment": "Hello, I love this restaurant",
         "created_at": ""
@@ -41,7 +41,7 @@
     ],
     "reviews": [
       {
-        "stars": 5,
+        "stars": 2.5,
         "name": "Juanmi",
         "comment": "Hello, I love this restaurant",
         "created_at": ""

@@ -16,30 +16,21 @@ export function init() {
 
 function showRestaurants(restaurants) {
   
-  var restaurantsList = document.getElementById('restaurants-list');
+  var restaurantsList = document.getElementById('restaurants-list'),
+  html = restaurants.map(rest => restaurantTmpl(rest));
+  restaurantsList.innerHTML = html.join();
 
-  restaurantsList.innerHTML = '';
-  restaurants.forEach(function(restaurant) {
-    restaurantsList.innerHTML += restaurantTmpl(restaurant);
-  })
-
-  console.assert(restaurantsList.childElementCount > 0, 'The app should load some restaurants');
 }
 
+//---------- Templates ---------------
 function restaurantTmpl(restaurant) {
-  
-  console.assert(typeof restaurant === 'object');
 
   return `<article class="row">
             <h2>
               <a href="#more">
                 ${restaurant.name}
               </a>
-              <i class="fa fa-star full" aria-hidden="true"></i>
-              <i class="fa fa-star full" aria-hidden="true"></i>
-              <i class="fa fa-star full" aria-hidden="true"></i>
-              <i class="fa fa-star full" aria-hidden="true"></i>
-              <i class="fa fa-star empty" aria-hidden="true"></i>
+              ${starsTmpl(calculateStars(restaurant.reviews))}
             </h2>
             <div class="thumb">
               <img src="${restaurant.photo}" alt="${restaurant.name} Photograph">
@@ -48,15 +39,69 @@ function restaurantTmpl(restaurant) {
               <span class="sr-only">Location:</span>
               <span class="fa fa-map-marker" aria-hidden="true"></span> 
               ${restaurant.address}
-              <a class="maps" href="#" target="_blank">Open in Maps</a>
+              <a class="maps" href="${mapsLink(restaurant.address)}" target="_blank">Open in Maps</a>
             </div>
             <div class="opening">
-              Opens: <span class="text-success">9:00 - 14:00</span> | <span class="text-success">16:00 - 20:00</span>
+              Opens: ${openingTmpl(restaurant.openingHours)} 
             </div>
             <div class="description">
               ${restaurant.description}
             </div>
             <input type="button" value="12 reviews - Add your review"/>
           </article>`;
+
+}
+
+function openingTmpl(openingHours) {
+
+  return openingHours.map(timeTmpl).join(' | ');
+
+}
+
+function timeTmpl(time) {
+
+  return `<span class="text-success">${time.open} - ${time.close}</span>`;
+
+}
+
+function avg(array) {
+  return array.reduce((prev, cur) => prev + cur, 0)/array.length;
+}
+
+function calculateStars(reviews) {
+
+  var stars = reviews.map((review) => review.stars);
+  return avg(stars) ;
+
+}
+
+function starType(order, number) {
+
+  if(number - order == -0.5) {
+    return 'half';
+  } else if(number - order >= 0) {
+    return 'full'
+  }
+
+  return 'empty';
+
+}
+
+function starsTmpl(number) {
+
+  return `<div class="stars">
+            <span class="sr-only">${number} stars</span>
+            <i class="fa fa-star ${starType(1, number)}" aria-hidden="true"></i>
+            <i class="fa fa-star ${starType(2, number)}" aria-hidden="true"></i>
+            <i class="fa fa-star ${starType(3, number)}" aria-hidden="true"></i>
+            <i class="fa fa-star ${starType(4, number)}" aria-hidden="true"></i>
+            <i class="fa fa-star ${starType(5, number)}" aria-hidden="true"></i>
+          </div>`;
+
+}
+
+function mapsLink(address) {
+
+  return `http://maps.google.com/?q=${encodeURIComponent(address)}`;
 
 }
