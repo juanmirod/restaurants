@@ -1,4 +1,6 @@
 import * as Modal from './modal.js';
+import * as Util from './util.js';
+import * as Stars from './stars.js';
 
 // module variables, used to filter the restaurants by name and type
 var restaurants, 
@@ -79,7 +81,7 @@ function showRestaurants(restaurants) {
   restaurantsList.innerHTML = '';
   restaurants.forEach((restaurant) => {
 
-    var restaurantElem = htmlToElement(restaurantTmpl(restaurant));
+    var restaurantElem = Util.htmlToElement(restaurantTmpl(restaurant));
     var button = restaurantElem.querySelector('.reviews-button');
 
     button.addEventListener('click', function(){
@@ -92,44 +94,6 @@ function showRestaurants(restaurants) {
 
 }
 
-function htmlToElement(html) {
-    var template = document.createElement('template');
-    template.innerHTML = html;
-    return template.content.firstChild;
-}
-
-/*
-  Average of an array of numbers
-*/
-function avg(array) {
-  return array.reduce((prev, cur) => prev + cur, 0)/array.length;
-}
-
-/*
-  Calculate the average from all stars in the reviews
-*/
-function calculateStars(reviews) {
-
-  var stars = reviews.map((review) => review.stars);
-  return avg(stars) ;
-
-}
-
-/*
-  Calculate how full is the current star
-*/
-function starType(order, number) {
-
-  if(number - order == -0.5) {
-    return 'half';
-  } else if(number - order >= 0) {
-    return 'full'
-  }
-
-  return 'empty';
-
-}
-
 //---------- Templates ---------------
 function restaurantTmpl(restaurant) {
 
@@ -138,7 +102,7 @@ function restaurantTmpl(restaurant) {
               <a href="#more">
                 ${restaurant.name}
               </a>
-              ${starsTmpl(calculateStars(restaurant.reviews))}
+              ${Stars.starsTmpl(Stars.calculateStars(restaurant.reviews))}
             </h2>
             <div class="thumb">
               <img src="${restaurant.photo}" alt="${restaurant.name} Photograph">
@@ -169,19 +133,6 @@ function openingTmpl(openingHours) {
 function timeTmpl(time) {
 
   return `<span class="text-success">${time.open} - ${time.close}</span>`;
-
-}
-
-function starsTmpl(number) {
-
-  return `<div class="stars">
-            <span class="sr-only">${number} stars</span>
-            <i class="fa fa-star ${starType(1, number)}" aria-hidden="true"></i>
-            <i class="fa fa-star ${starType(2, number)}" aria-hidden="true"></i>
-            <i class="fa fa-star ${starType(3, number)}" aria-hidden="true"></i>
-            <i class="fa fa-star ${starType(4, number)}" aria-hidden="true"></i>
-            <i class="fa fa-star ${starType(5, number)}" aria-hidden="true"></i>
-          </div>`;
 
 }
 
