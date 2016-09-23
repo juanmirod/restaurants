@@ -3,7 +3,7 @@ import * as Stars from './stars.js';
 
 const focusableElementsString = 'a[href], [role="slider"], area[href], input:not([disabled]), select:not([disabled]), textarea:not([disabled]), button:not([disabled]), iframe, object, embed, [tabindex="0"], [contenteditable]';
 
-var wrapper, modal, overlay, closeButton, focusedElementBeforeModal;
+var wrapper, modal, overlay, submitButton, closeButton, focusedElementBeforeModal;
 
 export function openModal(restaurant) {
 
@@ -13,16 +13,26 @@ export function openModal(restaurant) {
   
   overlay = document.getElementById('overlay');
   closeButton = document.getElementById('close-modal');
+  submitButton = document.getElementById('add-review');
+  var starsRating = document.getElementById('stars-rating');
 
   focusedElementBeforeModal = document.activeElement;
 
   // shows the modal and hides the rest of the content for
   // screen readers
   modal.removeAttribute('hidden');
+  window.requestAnimationFrame(function(){
+    modal.className = 'show';
+  });
   wrapper.setAttribute('aria-hidden', true);
 
   closeButton.addEventListener('click', closeModal);
   overlay.addEventListener('click', closeModal);
+  submitButton.addEventListener('click', submitReview(restaurant));
+  starsRating.addEventListener('keydown', Stars.starsRatingKeydownHandler);
+  for(var i=0; i < starsRating.children.length; i++) {
+    starsRating.children[i].addEventListener('mouseover', Stars.starsRatingHoverHandler);
+  } 
 
   // Add keyboard listener to create the focus-trap
   var {firstElement, lastElement} = findFocusLimitElements(modal);
@@ -33,8 +43,37 @@ export function openModal(restaurant) {
 export function closeModal() {
 
   wrapper.removeAttribute('aria-hidden');
-  document.body.removeChild(modal);  
+  modal.className = '';
+  
+  var transitionEvent = Util.whichTransitionEvent();
+  transitionEvent && modal.addEventListener(transitionEvent, removeModal);
 
+}
+
+function submitReview(restaurant) {
+
+  return function(){
+
+    var name = document.getElementById('review-name');
+    var comment = document.getElementById('comment');
+    var stars = document.getElementById('stars-rating');
+    var review = {
+      name: name.value,
+      comment: comment.value,
+      stars: stars.getAttribute('aria-valuenow'),
+      created_at: Date.now()
+    };
+
+    restaurant.reviews.push(review);
+    removeModal();
+    openModal(restaurant);
+
+  };  
+
+}
+
+function removeModal() {
+  document.body.removeChild(modal);
 }
 
 function findFocusLimitElements(modal) {
@@ -93,21 +132,7 @@ function modalTmpl(restaurant) {
                 <div class="new-review">
                   <form aria-labelledby="form-title">
                     <h3 id="form-title">Add your review</h3>
-                    <label class="sr-only" for="stars-rating">
-                      Please select a number of stars
-                    </label>
-                    <div id="stars-rating" 
-                         role="slider"
-                         tabindex="0" 
-                         aria-valuemin="0"
-                         aria-valuemax="5"
-                         aria-valuenow="0">
-                      <i class="fa fa-star empty" aria-hidden="true"></i>
-                      <i class="fa fa-star empty" aria-hidden="true"></i>
-                      <i class="fa fa-star empty" aria-hidden="true"></i>
-                      <i class="fa fa-star empty" aria-hidden="true"></i>
-                      <i class="fa fa-star empty" aria-hidden="true"></i>
-                    </div>
+                    ${Stars.starsRating()}
                     <input id="review-name" 
                            type="text" 
                            name="name" 
@@ -117,12 +142,12 @@ function modalTmpl(restaurant) {
                     <textarea id="comment" 
                               name="comment"
                               aria-label="Comment" 
-                              placeholder="Tell something about your experience in this restaurant.">
-                    </textarea>
+                              placeholder="Tell something about your experience in this restaurant."></textarea>
                   </form>
                 </div>
               </div>
               <footer>
+                <input id="add-review" type="button" name="addReview" value="Submit">
                 <input id="close-modal" type="button" name="closeModal" value="Close">
               </footer>
             </div>
@@ -131,7 +156,7 @@ function modalTmpl(restaurant) {
 
 function reviewsTmpl(reviews) {
 
-  return reviews.map(reviewTmpl).join();
+  return reviews.map(reviewTmpl).join('');
 
 }
 

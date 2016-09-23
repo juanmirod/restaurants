@@ -291,17 +291,20 @@ main {
     width: 100%;
     height: 100%;
     background-color: @background-overlay;
+    opacity: 0;
+    transition: opacity 0.25s linear;
   }
 
   .dialog {
     position: fixed;
-    top: 10px;
+    top: -500px;
     left: 50%;
     width: 600px;
     margin-left: -300px;
     background-color: @background-lighter;
     border-radius: 10px;
     box-shadow: 0px 15px 10px #000000; 
+    transition: top 0.25s ease-in-out;
 
     header {
       padding: 20px;
@@ -315,7 +318,22 @@ main {
     }
 
     footer {
+
+      &:after {
+        clear: both;
+        content: "";
+        display: table;
+      }
+
       padding: 20px;
+
+      #close-modal {
+        float: right;
+      }
+
+      #add-review {
+        float: left;
+      }
     }
 
     .content {
@@ -336,6 +354,22 @@ main {
       margin-bottom: 10px;
       width: 100%;
       box-sizing: border-box;
+    }
+
+    #stars-rating {
+      font-size: 1.4em;
+      cursor: pointer;
+    }
+  }
+
+  &.show {
+    
+    #overlay {
+      opacity: 1;
+    }
+
+    .dialog {
+      top: 10px;
     }
   }
 
