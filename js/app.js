@@ -1,3 +1,4 @@
+import * as Modal from './modal.js';
 
 // module variables, used to filter the restaurants by name and type
 var restaurants, 
@@ -74,10 +75,27 @@ function storeRestaurants(res) {
 */
 function showRestaurants(restaurants) {
   
-  var restaurantsList = document.getElementById('restaurants-list'),
-  html = restaurants.map(rest => restaurantTmpl(rest));
-  restaurantsList.innerHTML = html.join('');
+  var restaurantsList = document.getElementById('restaurants-list');
+  restaurantsList.innerHTML = '';
+  restaurants.forEach((restaurant) => {
 
+    var restaurantElem = htmlToElement(restaurantTmpl(restaurant));
+    var button = restaurantElem.querySelector('.reviews-button');
+
+    button.addEventListener('click', function(){
+      return Modal.openModal(restaurant);
+    });
+
+    restaurantsList.appendChild(restaurantElem);
+
+  });
+
+}
+
+function htmlToElement(html) {
+    var template = document.createElement('template');
+    template.innerHTML = html;
+    return template.content.firstChild;
 }
 
 /*
@@ -137,7 +155,7 @@ function restaurantTmpl(restaurant) {
             <div class="description">
               ${restaurant.description}
             </div>
-            <input type="button" value="12 reviews - Add your review"/>
+            <input class="reviews-button" type="button" value="12 reviews - Add your review"/>
           </article>`;
 
 }

@@ -47,6 +47,7 @@ nav {
   }
 }
 
+
 header {
   overflow: hidden;
   display: block;
@@ -282,8 +283,8 @@ main {
 }
 
 
-.modal {
-  .overlay {
+#modal {
+  #overlay {
     position: fixed;
     top: 0px;
     left: 0px;
@@ -293,13 +294,14 @@ main {
   }
 
   .dialog {
-    position: absolute;
+    position: fixed;
     top: 10px;
     left: 50%;
     width: 600px;
     margin-left: -300px;
     background-color: @background-lighter;
     border-radius: 10px;
+    box-shadow: 0px 15px 10px #000000; 
 
     header {
       padding: 20px;

@@ -11,64 +11,66 @@
   <script type="text/javascript" src="dist/js/main.js"></script>
 </head>
 <body>
-  <nav>
-    <ul>
-      <li><a href="/">Restaurants Reviews</a></li>
-    </ul>
-  </nav>
-  <header class="container">
-    <div class="row">
-      <h1>List of restaurants</h1>
-      <p>Search a restaurant or use food filter to narrow down the options.</p>
-    </div>
-  </header>
-  <main role="main" class="container">
-    <section id="search-form">
-    <label for="searchbox" class="sr-only">Type to filter by name</label>
-      <input id="searchbox" type="text" name="search" placeholder="Type to filter by name">
-    <div role="radiogroup">
-      <span class="sr-only">Filter by type</span>
+  <div id="wrapper">
+    <nav>
       <ul>
-
-        <li>
-          <input type="radio" name="type" id="spa" value="Spanish">
-          <label class="type-button" for="spa">Spanish</label>
-        </li>
-
-        <li>          
-          <input type="radio" name="type" id="pizza" value="Pizza">
-          <label class="type-button" for="pizza">Pizza</label>
-        </li>
-        
-        <li>
-          <input type="radio" name="type" id="chi" value="Chinesse">
-          <label class="type-button" for="chi">Chinnesse</label>
-        </li>
-          
-        <li>
-          <input type="radio" name="type" id="veg" value="Vegan">
-          <label class="type-button" for="veg">Vegan</label>
-        </li>
-
-        <li>
-          <input type="radio" name="type" id="sea" value="Seafood">
-          <label class="type-button" for="sea">Seafood</label>
-        </li>
-
+        <li><a href="/">Restaurants Reviews</a></li>
       </ul>
-    </div>
-    </section>
-    <section id="restaurants-list">
-    </section>
-  </main>
-  <footer class="container">
-    Created with <span class="sr-only">love</span><span class="fa fa-heart" aria-hidden="true"></span> by <a href="https://github.com/juanmirod">@juanmirod</a>
-  </footer>
-  <div class="modal">
-    <div class="overlay"></div>
+    </nav>
+    <header class="container">
+      <div class="row">
+        <h1>List of restaurants</h1>
+        <p>Search a restaurant or use food filter to narrow down the options.</p>
+      </div>
+    </header>
+    <main role="main" class="container">
+      <section id="search-form">
+      <label for="searchbox" class="sr-only">Type to filter by name</label>
+        <input id="searchbox" type="text" name="search" placeholder="Type to filter by name">
+      <div role="radiogroup">
+        <span class="sr-only">Filter by type</span>
+        <ul>
+
+          <li>
+            <input type="radio" name="type" id="spa" value="Spanish">
+            <label class="type-button" for="spa">Spanish</label>
+          </li>
+
+          <li>          
+            <input type="radio" name="type" id="pizza" value="Pizza">
+            <label class="type-button" for="pizza">Pizza</label>
+          </li>
+          
+          <li>
+            <input type="radio" name="type" id="chi" value="Chinesse">
+            <label class="type-button" for="chi">Chinnesse</label>
+          </li>
+            
+          <li>
+            <input type="radio" name="type" id="veg" value="Vegan">
+            <label class="type-button" for="veg">Vegan</label>
+          </li>
+
+          <li>
+            <input type="radio" name="type" id="sea" value="Seafood">
+            <label class="type-button" for="sea">Seafood</label>
+          </li>
+
+        </ul>
+      </div>
+      </section>
+      <section id="restaurants-list">
+      </section>
+    </main>
+    <footer class="container">
+      Created with <span class="sr-only">love</span><span class="fa fa-heart" aria-hidden="true"></span> by <a href="https://github.com/juanmirod">@juanmirod</a>
+    </footer>
+  </div>
+  <div id="modal" role="dialog" aria-labelledby="modal-title" hidden>
+    <div id="overlay"></div>
     <div class="dialog">
       <header>
-        <h3>Che Manoli Reviews</h3>
+        <h3 id="modal-title">Che Manoli Reviews</h3>
       </header>
       <div class="content">
         <div class="review">
@@ -121,13 +123,14 @@
           </p>
         </div>
         <div class="new-review">
-          <form>
-            <h3>Add your review</h3>
+          <form aria-labelledby="form-title">
+            <h3 id="form-title">Add your review</h3>
             <label class="sr-only" for="stars-rating">
               Please select a number of stars
             </label>
             <div id="stars-rating" 
                  role="slider"
+                 tabindex="0" 
                  aria-valuemin="0"
                  aria-valuemax="5"
                  aria-valuenow="0">
@@ -137,23 +140,22 @@
               <i class="fa fa-star empty" aria-hidden="true"></i>
               <i class="fa fa-star empty" aria-hidden="true"></i>
             </div>
-            <label for="review-name" class="sr-only">
-              Your name
-            </label>
             <input id="review-name" 
                    type="text" 
                    name="name" 
                    placeholder="Your name"
+                   aria-label="Your name"
                    autocomplete="name">
-            <label for="comment" class="sr-only">
-              Comment
-            </label>
-            <textarea id="comment" name="comment" placeholder="Tell something about your experience in this restaurant."></textarea>
+            <textarea id="comment" 
+                      name="comment"
+                      aria-label="Comment" 
+                      placeholder="Tell something about your experience in this restaurant.">
+            </textarea>
           </form>
         </div>
       </div>
       <footer>
-        <input type="button" name="closeModal" value="Close">
+        <input id="close-modal" type="button" name="closeModal" value="Close">
       </footer>
     </div>
   </div> 
