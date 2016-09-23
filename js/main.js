@@ -30,7 +30,7 @@ import * as App from './app.js';
       });
     }
 
-    // add input listener for the search box, we want to update
+    // Add input listener for the search box, we want to update
     // the list on each keystroke (the list is already completely 
     // loaded so this doesn't make more requests)
     var nameFilter = document.getElementById('searchbox');
