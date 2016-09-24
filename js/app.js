@@ -97,11 +97,9 @@ function showRestaurants(restaurants) {
 //---------- Templates ---------------
 function restaurantTmpl(restaurant) {
 
-  return `<article class="row">
+  return `<article class="row" aria-label="${restaurant.name} ${Stars.calculateStars(restaurant.reviews)} stars">
             <h2>
-              <a href="#more">
-                ${restaurant.name}
-              </a>
+              ${restaurant.name}
               ${Stars.starsTmpl(Stars.calculateStars(restaurant.reviews))}
             </h2>
             <div class="thumb">

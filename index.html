@@ -24,14 +24,17 @@
       </div>
     </header>
     <main role="main" class="container">
-      <section id="search-form">
-      <label for="searchbox" class="sr-only">Type to filter by name</label>
-        <input id="searchbox" type="text" name="search" placeholder="Type to filter by name">
+      <section id="search-form" aria-label="Search form">
+        <input id="searchbox" 
+               type="text" 
+               name="search" 
+               aria-label="Type to filter by name" 
+               placeholder="Type to filter by name">
       <div role="radiogroup">
         <span class="sr-only">Filter by type</span>
-        <ul>
-
-          <li>
+        <ul role="presentation">
+        
+          <li role="presentation">
             <input type="radio" name="type" id="spa" value="Spanish">
             <label class="type-button" for="spa">Spanish</label>
           </li>
