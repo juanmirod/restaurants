@@ -110,7 +110,7 @@ function restaurantTmpl(restaurant) {
             <div class="location">
               <span class="sr-only">Location:</span>
               <span class="fa fa-map-marker" aria-hidden="true"></span> 
-              ${restaurant.address}
+              <span>${restaurant.address}</span>
               <a class="maps" href="${mapsLink(restaurant.address)}" target="_blank">Open in Maps</a>
             </div>
             <div class="opening">

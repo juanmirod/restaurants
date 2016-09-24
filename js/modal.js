@@ -30,6 +30,9 @@ export function openModal(restaurant) {
   overlay.addEventListener('click', closeModal);
   submitButton.addEventListener('click', submitReview(restaurant));
   starsRating.addEventListener('keydown', Stars.starsRatingKeydownHandler);
+  starsRating.addEventListener('click', function() {
+    document.getElementById('review-name').focus();
+  });
   for(var i=0; i < starsRating.children.length; i++) {
     starsRating.children[i].addEventListener('mouseover', Stars.starsRatingHoverHandler);
   } 
@@ -123,7 +126,7 @@ function focusTrapController(firstElement, lastElement) {
 function modalTmpl(restaurant) {
   return `<div id="modal" role="dialog" aria-labelledby="modal-title" hidden>
             <div id="overlay"></div>
-            <div class="dialog">
+            <div id="dialog">
               <header>
                 <h3 id="modal-title">${restaurant.name}</h3>
               </header>
