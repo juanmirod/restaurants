@@ -157,13 +157,16 @@ function reviewsTmpl(reviews) {
 }
 
 function reviewTmpl(review) {
+
+  var date = new Date(parseInt(review.created_at));
   return `<div class="review">
             <p class="author">
               ${Stars.starsTmpl(review.stars)}
-              <span>by ${review.name} on ${review.created_at}</span>              
+              <span>by ${review.name} on ${date.toLocaleString()}</span>              
             </p>
             <p class="comment">
               ${review.comment}
             </p>
           </div>`;
+
 }

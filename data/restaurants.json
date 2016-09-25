@@ -19,13 +19,13 @@
         "stars": 5,
         "name": "Juanmi",
         "comment": "I love this restaurant",
-        "created_at": ""
+        "created_at": "1474802482427"
       },
       {
         "stars": 5,
         "name": "Pepa",
         "comment": "This is one of my favourite restaurants, the food is great and the service is so nice.",
-        "created_at": ""
+        "created_at": "1474802482827"
       }
     ]
   },
@@ -68,7 +68,7 @@
         "stars": 3,
         "name": "Marta",
         "comment": "Nice rice and nice Pekin duck, good service, the decorations are terrible.",
-        "created_at": ""
+        "created_at": "1474802482827"
       }
     ]
   },
@@ -93,19 +93,19 @@
         "stars": 5,
         "name": "Sophie",
         "comment": "Nice restaurant, almost perfect.",
-        "created_at": ""
+        "created_at": "1474802482827"
       },
       {
         "stars": 2,
         "name": "John Troll",
         "comment": "This a terrible restaurant, I do not like pizza.",
-"created_at": ""
+        "created_at": "1474802482827"
       },
       {
         "stars": 4,
         "name": "Anne",
         "comment": "Nice restaurant, almost perfect.",
-        "created_at": ""
+        "created_at": "1474802482827"
       }
     ]
   },
@@ -130,7 +130,7 @@
         "stars": 5,
         "name": "Juanmi",
         "comment": "Hello, I love this restaurant",
-        "created_at": ""
+        "created_at": "1474802482827"
       }
     ]
   },
@@ -155,7 +155,7 @@
         "stars": 5,
         "name": "Juanmi",
         "comment": "Hello, I love this restaurant",
-        "created_at": ""
+        "created_at": "1474802482827"
       }
     ]
   }
