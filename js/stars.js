@@ -40,6 +40,18 @@ export function starsRating() {
           </div>`;
 }
 
+export function addListeners() {
+
+  var starsRating = document.getElementById('stars-rating');
+  
+  starsRating.addEventListener('keydown', starsRatingKeydownHandler);
+
+  for(var i=0; i < starsRating.children.length; i++) {
+    starsRating.children[i].addEventListener('mouseover', starsRatingHoverHandler);
+  }
+
+}
+
 export function starsRatingKeydownHandler(evt) {
 
   var valueTexts = ['zero stars', 'one star', 'two stars', 'three stars', 'four stars', 'five stars'];

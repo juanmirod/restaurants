@@ -14,7 +14,6 @@ export function openModal(restaurant) {
   overlay = document.getElementById('overlay');
   closeButton = document.getElementById('close-modal');
   submitButton = document.getElementById('add-review');
-  var starsRating = document.getElementById('stars-rating');
 
   focusedElementBeforeModal = document.activeElement;
 
@@ -29,13 +28,7 @@ export function openModal(restaurant) {
   closeButton.addEventListener('click', closeModal);
   overlay.addEventListener('click', closeModal);
   submitButton.addEventListener('click', submitReview(restaurant));
-  starsRating.addEventListener('keydown', Stars.starsRatingKeydownHandler);
-  starsRating.addEventListener('click', function() {
-    document.getElementById('review-name').focus();
-  });
-  for(var i=0; i < starsRating.children.length; i++) {
-    starsRating.children[i].addEventListener('mouseover', Stars.starsRatingHoverHandler);
-  } 
+  Stars.addListeners(); 
 
   // Add keyboard listener to create the focus-trap
   var {firstElement, lastElement} = findFocusLimitElements(modal);
