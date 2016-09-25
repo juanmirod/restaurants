@@ -23,15 +23,15 @@ export function starsTmpl(number) {
 
 export function starsRating() {
 
-  return `<label class="sr-only" for="stars-rating">
-            Please select a number of stars
-          </label>
-          <div id="stars-rating" 
+  return `<div id="stars-rating" 
                role="slider"
-               tabindex="0" 
+               tabindex="0"
+               aria-label="Please select a number of stars" 
+               aria-live="polite"
                aria-valuemin="0"
                aria-valuemax="5"
-               aria-valuenow="0">
+               aria-valuenow="0"
+               aria-valuetext="zero">
             <i class="fa fa-star empty" aria-hidden="true"></i>
             <i class="fa fa-star empty" aria-hidden="true"></i>
             <i class="fa fa-star empty" aria-hidden="true"></i>
@@ -42,6 +42,7 @@ export function starsRating() {
 
 export function starsRatingKeydownHandler(evt) {
 
+  var valueTexts = ['zero stars', 'one star', 'two stars', 'three stars', 'four stars', 'five stars'];
   var elem = evt.target;
   switch(evt.keyCode) {
 
@@ -63,6 +64,7 @@ export function starsRatingKeydownHandler(evt) {
       evt.preventDefault();
       var value = (parseInt(elem.getAttribute('aria-valuenow'))+1)%6; 
       elem.setAttribute('aria-valuenow', value);
+      elem.setAttribute('aria-valuetext', valueTexts[value]);
       fillStars(elem);
       break;
 

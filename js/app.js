@@ -117,7 +117,7 @@ function restaurantTmpl(restaurant) {
             <div class="description">
               ${restaurant.description}
             </div>
-            <input class="reviews-button" type="button" value="12 reviews - Add your review"/>
+            <input class="reviews-button" type="button" value="${restaurant.reviews.length} reviews - Add your review"/>
           </article>`;
 
 }
