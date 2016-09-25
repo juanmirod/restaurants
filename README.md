@@ -19,8 +19,11 @@ My experience with this project is that it may take you a bit more to add keyboa
 So accessibility is a must for apps that aims to deliver a great user experience and want to reach a broad audience. More info in A11y:
 
 [Udacity Web Accessibility free online course by Google](https://www.udacity.com/course/web-accessibility--ud891)
+
 [Introduction to web accessibility](http://webaim.org/intro/)
+
 [WAI-ARIA Authoring practices](https://www.w3.org/TR/2016/WD-wai-aria-practices-1.1-20160317/)
+
 [thea11yproject](http://a11yproject.com/)
 
 ## Install
