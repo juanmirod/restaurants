@@ -16,7 +16,7 @@ My experience with this project is that it may take you a bit more to add keyboa
 - Keyboard interaction improves the experience for all users and 
 - Responsiveness makes your app look better on every device so you don't have to redirect your mobile and tablet users to download a native app to do the same tasks that they'd do on the web. 
 
-So accessibility is a must for apps that aims to deliver a great user experience and want to reach a broad audience. More info in A11y:
+Accessibility is a must for apps that aim to deliver a great user experience and want to reach a broad audience. More info in A11y:
 
 [Udacity Web Accessibility free online course by Google](https://www.udacity.com/course/web-accessibility--ud891)
 
