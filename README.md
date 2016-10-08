@@ -26,6 +26,8 @@ Accessibility is a must for apps that aim to deliver a great user experience and
 
 [thea11yproject](http://a11yproject.com/)
 
+[Microsoft Inclusive Design Toolkit](https://www.microsoft.com/en-us/design/practice#toolkit)
+
 ## Install
 
 To install and run the local server you have to run this commands:
