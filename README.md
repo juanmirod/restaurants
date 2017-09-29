@@ -28,6 +28,8 @@ Accessibility is a must for apps that aim to deliver a great user experience and
 
 [Microsoft Inclusive Design Toolkit](https://www.microsoft.com/en-us/design/practice#toolkit)
 
+[CSS with A11Y in mind](https://medium.com/@matuzo/writing-css-with-accessibility-in-mind-8514a0007939)
+
 ## Install
 
 To install and run the local server you have to run this commands:
